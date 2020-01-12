@@ -1,0 +1,76 @@
+<div class="page page-single-order pull-to-header">
+
+    <ol class="breadcrumb bg-white">
+        <li><a ui-sref="dashboard">{{'Menu.DASHBOARD'|translate}}</a></li>
+        <li><a ui-sref="user.index">{{'Operation.LIST_OF'|translate}} {{'Table.USER'|translate}}s</a></li>
+        <li class="active">{{ ctrl.user.id}}</li>
+    </ol>
+
+    <div class="add-nav">
+        <div class="nav-heading">
+            <h3>{{"Operation.DETAILS"|translate}} {{"Table.USER"|translate}} : <strong class="text-theme">{{ctrl.user.id}}</strong></h3>
+            <span class="controls pull-right">
+                <a ng-click="ctrl.find()" class="icon icon-primary icon-ef-2 icon-ef-2a" uib-tooltip="{{'Operation.REFRESH'|translate}}" tooltip-placement="bottom"><i class="fa fa-refresh"></i></a>
+                <a ui-sref="user.new" class="icon icon-primary icon-ef-3 icon-ef-3a hover-color"  uib-tooltip="{{'Operation.ADD'|translate}} {{'Operation.NEW'|translate}}" tooltip-placement="bottom"><i class="fa fa-plus"></i></a>
+                <a ui-sref="user.clone({id:ctrl.user.id})" class="icon icon-primary icon-ef-3 icon-ef-3a hover-color" uib-tooltip="{{'Operation.CLONE'|translate}}" tooltip-placement="bottom"><i class="fa fa-clone"></i></a>
+                <a ui-sref="user.index" uib-tooltip="{{'Operation.GOTO_LIST_OF'|translate}} {{'Table.USER'|translate}}s"  tooltip-placement="bottom" class="icon icon-default icon-ef-2 icon-ef-2b hover-color"><i class="fa fa-list"></i></a>
+                <a ui-sref="user.edit({id:ctrl.user.id})" uib-tooltip="{{'Operation.EDIT'|translate}}"  tooltip-placement="bottom" class="icon icon-warning icon-ef-3 icon-ef-3a hover-color"><i class="fa fa-edit"></i></a>
+                <a ng-click="ctrl.remove()" class="icon icon-danger icon-ef-5 icon-ef-5a icon-color" uib-tooltip="{{'Operation.DELETE'|translate}}"  tooltip-placement="bottom"><i class="fa fa-trash"></i></a>
+            </span>
+        </div>
+        <uib-tabset>
+            <uib-tab heading="{{'Operation.DETAILS'|translate}}">
+                <!-- row -->
+                <div class="row">
+                    <!-- col -->
+                    <div class="col-md-6">
+                        <!-- tile -->
+                        <section class="tile tile-simple">
+                            <!-- tile header -->
+                            <section class="tile-header">
+                                <h1 class="heading">{{"Table.USER"|translate}} : {{ctrl.user.id}}</h1>
+                                <div class="controls">
+                                    <a href="javascript:window.print()" uib-tooltip="{{'Operation.PRINT'|translate}}" tooltip-placement="bottom" class="icon icon-drank icon-ef-8 icon-color"><i class="fa fa-print"></i></a>
+                                    <div class="btn-group" uib-dropdown>
+                                        <a uib-dropdown-toggle class="icon icon-info icon-ef-6 icon-color"><i class="fa fa-cog"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-custom" uib-dropdown-menu role="menu">
+                                            <li role="menuitem"><a href="javascript:;" minotaur-tile-minimize></a></li>
+                                            <li role="menuitem"><a href="javascript:;" minotaur-tile-fullscreen></a></li>
+                                            <li role="menuitem"><a href="javascript:;" minotaur-tile-lightbox></a></li>
+                                        </ul>
+                                    </div>
+                                    <minotaur-tile-close></minotaur-tile-close> 
+                                </div>
+                            </section>
+                            <!-- tile body -->
+                            <div class="tile-body">
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-md-12">
+                                        <h4>{{"Operation.DETAILS"|translate}}</h4>
+                                        <dl class="dl-horizontal filled dk">                                                        <dt>{{ "user.PRENOM"|translate }}: </dt>
+
+                                            <dd>{{ctrl.user.prenom}}</dd>                                                        <dt>{{ "user.NOM"|translate }}: </dt>
+
+                                            <dd>{{ctrl.user.nom}}</dd>                                                    <dt>{{ "user.DATENAISSANCE"|translate }}: </dt>
+
+                                            <dd>{{ ctrl.user.dateNaissance|date:"dd/MM/YYYY HH:mm:ss" }}</dd>                                                        <dt>{{ "user.ADRESSE"|translate }}: </dt>
+
+                                            <dd>{{ctrl.user.adresse}}</dd>                                                        <dt>{{ "user.TELEPHONE"|translate }}: </dt>
+
+                                            <dd>{{ctrl.user.telephone}}</dd>                                            </dl>
+                                    </div>
+                                    <!-- /col -->
+                                </div>
+                                <!-- /row -->
+                        </section>
+                        <!-- /tile -->
+                    </div>
+                    <!-- /col -->
+                </div>
+                <!-- /row -->
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

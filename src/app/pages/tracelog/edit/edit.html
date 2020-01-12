@@ -1,0 +1,80 @@
+<div class="page page-products pull-to-header">
+
+    <ol class="breadcrumb bg-white">
+        <li><a ui-sref="dashboard">{{'Menu.DASHBOARD'|translate}}</a></li>
+        <li><a ui-sref="tracelog.index">{{'Operation.LIST_OF'|translate}} {{'Table.TRACELOG'|translate}}s</a></li>
+        <li><a ui-sref="tracelog.show({id:ctrl.traceLog.id})">{{"Operation.DETAILS"|translate}} {{'Table.TRACELOG'|translate}} : {{ctrl.traceLog.id}}</a></li>
+        <li class="active">{{"Operation.EDIT_FORM"|translate}} : {{"Table.TRACELOG"|translate}}</li>
+    </ol>
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-md-12">
+
+            <!-- tile -->
+            <div class="tile tile-simple">
+                <!-- tile header -->
+                <section class="tile-header">
+                    <h1 class="heading">{{"Operation.EDIT_FORM"|translate}} : {{"Table.TRACELOG"|translate}} : {{ctrl.traceLog.id}}</h1>
+                    <div class="controls">
+                        <a ui-sref="tracelog.new" class="icon icon-success icon-ef-3 icon-ef-3a hover-color" uib-tooltip="{{'Operation.ADD'|translate}} {{'Operation.NEW'|translate}}" tooltip-placement="bottom"><i class="fa fa-plus"></i></a>
+                        <a ng-click="ctrl.find()" class="icon icon-primary icon-ef-2 icon-ef-2a" uib-tooltip="{{'Operation.REFRESH'|translate}}" tooltip-placement="bottom"><i class="fa fa-refresh"></i></a>
+                        <a ng-click="ctrl.remove()" class="icon icon-danger icon-ef-5 icon-ef-5a icon-color" uib-tooltip="{{'Operation.DELETE'|translate}}" tooltip-placement="bottom"><i class="fa fa-trash"></i></a>
+                        <a ui-sref="tracelog.show({id:ctrl.traceLog.id})" class="icon icon-primary icon-ef-5 icon-ef-5a icon-color" uib-tooltip="{{'Operation.SHOW'|translate}}" tooltip-placement="bottom"><i class="fa fa-eye"></i></a>
+                        <a ui-sref="tracelog.index" uib-tooltip="{{'Operation.GOTO_LIST_OF'|translate}} {{'Table.TRACELOG'|translate}}s" tooltip-placement="bottom" class="icon icon-default icon-ef-2 icon-ef-2b hover-color"><i class="fa fa-list"></i></a>
+                        <a href="javascript:window.print()" class="icon icon-drank icon-ef-8 icon-color" uib-tooltip="{{'Operation.PRINT'|translate}}" tooltip-placement="bottom"><i class="fa fa-print"></i></a>
+                        <div class="btn-group" uib-dropdown>
+                            <a uib-dropdown-toggle class="icon icon-info icon-ef-6 icon-color"><i class="fa fa-cog"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-custom" uib-dropdown-menu role="menu">
+                                <li role="menuitem"><a href="javascript:;" minotaur-tile-minimize></a></li>
+                                <li role="menuitem"><a href="javascript:;" minotaur-tile-fullscreen></a></li>
+                                <li role="menuitem"><a href="javascript:;" minotaur-tile-lightbox></a></li>
+                            </ul>
+                        </div>
+                        <minotaur-tile-close></minotaur-tile-close>
+                    </div>
+                </section>
+                <!-- /tile header -->
+                <!-- tile body -->
+                <section class="tile-body">
+                    <form name="ctrl.form" class="form-horizontal form-validation" role="form" ng-submit="ctrl.update()">                                            <div class="form-group">
+                            <label for="operation" class="col-sm-3 control-label minotaur-label">{{ "traceLog.OPERATION"|translate }} <span class="text-danger" style="font-size: 15px;">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" name="operation" class="form-control" id="operation" placeholder="{{ 'traceLog.OPERATION'|translate }}..." ng-model="ctrl.traceLog.operation" required>
+                            </div>
+                        </div>                                            <div class="form-group">
+                            <label for="ancienneValeur" class="col-sm-3 control-label minotaur-label">{{ "traceLog.ANCIENNEVALEUR"|translate }} <span class="text-danger" style="font-size: 15px;">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" name="ancienneValeur" class="form-control" id="ancienneValeur" placeholder="{{ 'traceLog.ANCIENNEVALEUR'|translate }}..." ng-model="ctrl.traceLog.ancienneValeur" required>
+                            </div>
+                        </div>                                            <div class="form-group">
+                            <label for="nouvelleValeur" class="col-sm-3 control-label minotaur-label">{{ "traceLog.NOUVELLEVALEUR"|translate }} <span class="text-danger" style="font-size: 15px;">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" name="nouvelleValeur" class="form-control" id="nouvelleValeur" placeholder="{{ 'traceLog.NOUVELLEVALEUR'|translate }}..." ng-model="ctrl.traceLog.nouvelleValeur" required>
+                            </div>
+                        </div>                                            <div class="form-group">
+                            <label for="date" class="col-sm-3 control-label minotaur-label">{{ "traceLog.DATE"|translate }} <span class="text-danger" style="font-size: 15px;">*</span></label>
+                            <div class="col-sm-9">
+                                <div class="input-group w-md" ng-controller="DatepickerController as datepicker">
+                                    <div style="display:inline-block; min-height:240px;">
+                                        <div uib-datepicker ng-model="ctrl.traceLog.date" required="required" class="well well-sm" datepicker-options="datepicker.options"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       <div class="form-footer">
+                            <i class="fa fa-spinner fa-pulse fa-fw" ng-if="ctrl.processing"></i>
+                            <button type="submit" class="btn btn-success minotaur-btn pull-right" ng-disabled="ctrl.form.$invalid || ctrl.processing">{{"Operation.UPDATE"|translate}}</button>
+                            <button class="btn btn-lightred minotaur-btn colored" ui-sref="tracelog.show({id:ctrl.traceLog.id})" ng-disabled="ctrl.processing"><i class="fa fa-arrow-left"></i> {{"Operation.CANCEL"|translate}}</button>
+                        </div>
+                    </form>
+                </section>
+                <!-- /tile body -->
+            </div>
+            <!-- /tile -->
+        </div>
+        <!-- /col -->
+
+    </div>
+    <!-- /row -->
+
+</div>

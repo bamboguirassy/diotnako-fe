@@ -1,0 +1,48 @@
+<div class="nav-heading">
+  <a class="brand" ui-sref="dashboard"></a>
+  <h3>Navigation <a href="javascript:;" class="pull-right" id="expand-toggle"><i class="fa fa-circle-o"></i></a></h3>
+</div>
+
+<div slimscroll="{
+      height: '100%',
+      size: '4px',
+      borderRadius: '0px',
+      opacity: .2
+     }">
+
+  <ul class="nav nav-sidebar">
+    <li ng-class="{'active':$state.includes('dashboard')}">
+      <a ui-sref="dashboard">
+        <span class="nav-text">{{ 'Menu.DASHBOARD' | translate }}</span>
+        <i class="fa fa-home"></i>
+      </a>
+    </li>
+    <li ng-class="{'open active':$state.includes('user') || $state.includes('comptediotnako')}">
+      <a href="javascript:;">
+        <span class="nav-text">{{ 'Menu.USER_AND_ACCOUNT' | translate }}</span>
+        <i class="fa fa-user-plus"><span class="badge bg-red">2</span></i>
+      </a>
+      <ul>
+        <li ng-class="{'active':$state.includes('user')}">
+          <a ui-sref="user.index">
+            <span class="nav-text">{{ 'Menu.USER' | translate }}</span>
+            <i>{{ 'Menu.USER' | translate | limitTo: 2}}</i>
+          </a>
+        </li>
+        <li ng-class="{'active':$state.includes('comptediotnako')}">
+          <a ui-sref="comptediotnako.index">
+            <span class="nav-text">{{ 'Menu.COMPTEDIOTNAKO' | translate }}</span>
+            <i>{{ 'Menu.COMPTEDIOTNAKO' | translate | limitTo: 2}}</i>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li ng-class="{'active':$state.includes('tracelog')}">
+      <a ui-sref="tracelog.index">
+        <span class="nav-text">{{ 'Menu.TRACELOG' | translate }}</span>
+        <i class="fa fa-history"></i>
+      </a>
+    </li>
+    
+  </ul>
+</div>

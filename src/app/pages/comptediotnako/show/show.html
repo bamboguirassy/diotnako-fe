@@ -1,0 +1,82 @@
+<div class="page page-single-order pull-to-header">
+
+    <ol class="breadcrumb bg-white">
+        <li><a ui-sref="dashboard">{{'Menu.DASHBOARD'|translate}}</a></li>
+        <li><a ui-sref="comptediotnako.index">{{'Operation.LIST_OF'|translate}} {{'Table.COMPTEDIOTNAKO'|translate}}s</a></li>
+        <li class="active">{{ ctrl.compteDiotnako.id}}</li>
+    </ol>
+
+    <div class="add-nav">
+        <div class="nav-heading">
+            <h3>{{"Operation.DETAILS"|translate}} {{"Table.COMPTEDIOTNAKO"|translate}} : <strong class="text-theme">{{ctrl.compteDiotnako.id}}</strong></h3>
+            <span class="controls pull-right">
+                <a ng-click="ctrl.find()" class="icon icon-primary icon-ef-2 icon-ef-2a" uib-tooltip="{{'Operation.REFRESH'|translate}}" tooltip-placement="bottom"><i class="fa fa-refresh"></i></a>
+                <a ui-sref="comptediotnako.new" class="icon icon-primary icon-ef-3 icon-ef-3a hover-color"  uib-tooltip="{{'Operation.ADD'|translate}} {{'Operation.NEW'|translate}}" tooltip-placement="bottom"><i class="fa fa-plus"></i></a>
+                <a ui-sref="comptediotnako.clone({id:ctrl.compteDiotnako.id})" class="icon icon-primary icon-ef-3 icon-ef-3a hover-color" uib-tooltip="{{'Operation.CLONE'|translate}}" tooltip-placement="bottom"><i class="fa fa-clone"></i></a>
+                <a ui-sref="comptediotnako.index" uib-tooltip="{{'Operation.GOTO_LIST_OF'|translate}} {{'Table.COMPTEDIOTNAKO'|translate}}s"  tooltip-placement="bottom" class="icon icon-default icon-ef-2 icon-ef-2b hover-color"><i class="fa fa-list"></i></a>
+                <a ui-sref="comptediotnako.edit({id:ctrl.compteDiotnako.id})" uib-tooltip="{{'Operation.EDIT'|translate}}"  tooltip-placement="bottom" class="icon icon-warning icon-ef-3 icon-ef-3a hover-color"><i class="fa fa-edit"></i></a>
+                <a ng-click="ctrl.remove()" class="icon icon-danger icon-ef-5 icon-ef-5a icon-color" uib-tooltip="{{'Operation.DELETE'|translate}}"  tooltip-placement="bottom"><i class="fa fa-trash"></i></a>
+            </span>
+        </div>
+        <uib-tabset>
+            <uib-tab heading="{{'Operation.DETAILS'|translate}}">
+                <!-- row -->
+                <div class="row">
+                    <!-- col -->
+                    <div class="col-md-6">
+                        <!-- tile -->
+                        <section class="tile tile-simple">
+                            <!-- tile header -->
+                            <section class="tile-header">
+                                <h1 class="heading">{{"Table.COMPTEDIOTNAKO"|translate}} : {{ctrl.compteDiotnako.id}}</h1>
+                                <div class="controls">
+                                    <a href="javascript:window.print()" uib-tooltip="{{'Operation.PRINT'|translate}}" tooltip-placement="bottom" class="icon icon-drank icon-ef-8 icon-color"><i class="fa fa-print"></i></a>
+                                    <div class="btn-group" uib-dropdown>
+                                        <a uib-dropdown-toggle class="icon icon-info icon-ef-6 icon-color"><i class="fa fa-cog"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-custom" uib-dropdown-menu role="menu">
+                                            <li role="menuitem"><a href="javascript:;" minotaur-tile-minimize></a></li>
+                                            <li role="menuitem"><a href="javascript:;" minotaur-tile-fullscreen></a></li>
+                                            <li role="menuitem"><a href="javascript:;" minotaur-tile-lightbox></a></li>
+                                        </ul>
+                                    </div>
+                                    <minotaur-tile-close></minotaur-tile-close> 
+                                </div>
+                            </section>
+                            <!-- tile body -->
+                            <div class="tile-body">
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-md-12">
+                                        <h4>{{"Operation.DETAILS"|translate}}</h4>
+                                        <dl class="dl-horizontal filled dk">                                                    <dt>{{ "compteDiotnako.DATECREATION"|translate }}: </dt>
+
+                                            <dd>{{ ctrl.compteDiotnako.dateCreation|date:"dd/MM/YYYY HH:mm:ss" }}</dd>                                                        <dt>{{ "compteDiotnako.IDENTIFIANTDIOTNAKO"|translate }}: </dt>
+
+                                            <dd>{{ctrl.compteDiotnako.identifiantDiotnako}}</dd>                                                        <dt>{{ "compteDiotnako.TELEPHONE"|translate }}: </dt>
+
+                                            <dd>{{ctrl.compteDiotnako.telephone}}</dd>                                                        <dt>{{ "compteDiotnako.SOLDE"|translate }}: </dt>
+
+                                            <dd>{{ctrl.compteDiotnako.solde}}</dd>                                                        <dt>{{ "compteDiotnako.ETAT"|translate }}: </dt>
+
+                                            <dd> <span ng-class="{'bg-success':ctrl.compteDiotnako.etat,'bg-danger':ctrl.compteDiotnako.etat == false}" ng-bind="ctrl.compteDiotnako.etat?('State.ON' | translate) : ('State.OFF' | translate)"></span></dd>                                                        <dt>{{ "compteDiotnako.BLOQUE"|translate }}: </dt>
+
+                                            <dd> <span ng-class="{'bg-success':ctrl.compteDiotnako.bloque,'bg-danger':ctrl.compteDiotnako.bloque == false}" ng-bind="ctrl.compteDiotnako.bloque?('State.ON' | translate) : ('State.OFF' | translate)"></span></dd>                                                        <dt>{{ "compteDiotnako.CODECONFIRMATION"|translate }}: </dt>
+
+                                            <dd>{{ctrl.compteDiotnako.codeConfirmation}}</dd>                                                    <dt>{{ "compteDiotnako.DATECONFIRMATION"|translate }}: </dt>
+
+                                            <dd>{{ ctrl.compteDiotnako.dateConfirmation|date:"dd/MM/YYYY HH:mm:ss" }}</dd>                                            </dl>
+                                    </div>
+                                    <!-- /col -->
+                                </div>
+                                <!-- /row -->
+                        </section>
+                        <!-- /tile -->
+                    </div>
+                    <!-- /col -->
+                </div>
+                <!-- /row -->
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>
